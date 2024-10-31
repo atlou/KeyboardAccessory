@@ -31,8 +31,18 @@ struct ContentView: View {
         }
     }
 }
+```
 
+There is also a `background` closure that lets you add a background view. 
 
+```swift
+ScrollView {}
+    .keyboardAccessory {
+        // Accessory
+    } background {
+        Rectangle()
+            .fill(.regularMaterial)
+    }
 ```
 
 ## Credits
