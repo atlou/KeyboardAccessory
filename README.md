@@ -37,7 +37,7 @@ struct ContentView: View {
 
 ## Credits
 
-> This package was built using [BottomInputBarSwiftUI](https://github.com/frogcjn/BottomInputBarSwiftUI), which is used under the MIT license as per the user's permission. I only made some changes to the modifier and created a package. All credit for the actual implementation goes to [frogcjn](https://github.com/frogcjn).
+This package was built using [BottomInputBarSwiftUI](https://github.com/frogcjn/BottomInputBarSwiftUI), which is used under the MIT license as per the user's permission. I only made some changes to the modifier and created a package. All credit for the actual implementation goes to [frogcjn](https://github.com/frogcjn).
 
 
 
