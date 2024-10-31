@@ -8,14 +8,17 @@
 import SwiftUI
 
 public extension View {
-    func keyboardAccessory<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-        modifier(KeyboardAccessoryModifier(accessory: content))
+    func keyboardAccessory<Content: View, Background: View>(
+        @ViewBuilder content: @escaping () -> Content,
+        @ViewBuilder background: @escaping () -> Background = { Color.clear }
+    ) -> some View {
+        self.modifier(KeyboardAccessoryModifier(accessory: content, background: background))
     }
 }
 
-struct KeyboardAccessoryModifier<Accessory: View>: ViewModifier {
-    @ViewBuilder
-    let accessory: Accessory
+struct KeyboardAccessoryModifier<Accessory: View, Background: View>: ViewModifier {
+    @ViewBuilder let accessory: Accessory
+    @ViewBuilder let background: Background
 
     @State
     private var height: CGFloat?
@@ -23,13 +26,13 @@ struct KeyboardAccessoryModifier<Accessory: View>: ViewModifier {
     func body(content: Content) -> some View {
         ZStack(alignment: .bottom) {
             content
-                .safeAreaPadding(.bottom, height)
+                .safeAreaPadding(.bottom, self.height)
                 .ignoresSafeArea(.all, edges: .bottom)
 
             UIBottomBar.ViewRepresentable {
-                accessory
+                self.accessory
             } background: {
-                Color.clear.readSize { height = $0.height }
+                self.background.readSize { self.height = $0.height }
             }
         }
     }
