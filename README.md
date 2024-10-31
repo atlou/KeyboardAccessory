@@ -12,7 +12,7 @@ Using this package, we can solve this problem and achieve the expected behavior.
 
 <img align="center" src="https://github.com/user-attachments/assets/1f7ec752-9c2c-447a-9a1c-883ac26830be" alt="Screenshot of the problem" width="25%">
 
-## Usage
+## Using the package
 
 First, you need to add this package to your project dependencies. Then, you can import the package and use the `.keyboardAccessory` modifier on any type of scrolling view.                                     
 
