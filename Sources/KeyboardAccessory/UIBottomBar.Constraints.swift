@@ -91,11 +91,11 @@ extension UIBottomBar {
                 // hostingView | keyboard (V)
                 barView.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor),
                 
-                // hostingView == keyboard (H)
-                barView.centerXAnchor.constraint(equalTo: keyboardLayoutGuide.centerXAnchor),
+                // hostingView == safeArea (H)
+                barView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
                 {
-                    let constraint = barView.widthAnchor.constraint(equalTo: keyboardLayoutGuide.widthAnchor)
-                    constraint.priority -= 1
+                    let constraint = barView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
+                    constraint.priority = .defaultHigh - 1
                     return constraint
                 }(),
                 
