@@ -12,7 +12,7 @@ public extension View {
         @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder background: @escaping () -> Background = { Color.clear }
     ) -> some View {
-        self.modifier(KeyboardAccessoryModifier(accessory: content, background: background))
+        modifier(KeyboardAccessoryModifier(accessory: content, background: background))
     }
 }
 
@@ -26,8 +26,8 @@ struct KeyboardAccessoryModifier<Accessory: View, Background: View>: ViewModifie
     func body(content: Content) -> some View {
         ZStack(alignment: .bottom) {
             content
-                .safeAreaPadding(.bottom, self.height)
-                .ignoresSafeArea(.all, edges: .bottom)
+//                .safeAreaPadding(.bottom, self.height)
+//                .ignoresSafeArea(.all, edges: .bottom)
 
             UIBottomBar.ViewRepresentable {
                 self.accessory
