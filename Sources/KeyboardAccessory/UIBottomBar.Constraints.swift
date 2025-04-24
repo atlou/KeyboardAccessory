@@ -108,7 +108,8 @@ extension UIBottomBar {
         }
 
         func updateKeyboardDismissPadding() {
-            target.keyboardLayoutGuide.keyboardDismissPadding = source.barView.intrinsicContentSize.height
+            let bottomInset = target.window.safeAreaInsets.bottom
+            target.keyboardLayoutGuide.keyboardDismissPadding = bottomInset
         }
 
         struct Target {
